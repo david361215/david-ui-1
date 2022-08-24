@@ -1,7 +1,6 @@
 import vue from "@vitejs/plugin-vue";
+import { defineConfig } from 'vite'
 
-export default {
-  base: './',
-  assetsDir: 'assets',
+export default defineConfig({
   plugins: [vue()],
-};
+});

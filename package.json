@@ -1,11 +1,14 @@
 {
   "name": "david-ui-1",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "files": [
     "dist/lib/*"
   ],
-  "main": "dist/lib/david.js",
-  "module": "dist/lib/david.esm.js",
+  "scripts": {
+    "build:lib": "vite build -c vite.lib.config.ts"
+  },
+  "main": "dist/lib/david.umd.js",
+  "module": "dist/lib/david.es.js",
   "resolutions": {
     "node-sass": "npm:sass@latest"
   },
@@ -18,8 +21,11 @@
     "vite": "3.0.9",
     "vue":"3.2.37"
   },
-  "peerDependencies": {
-    "vue": "3.2.37",
-    "github-markdown-css": "4.0.0"
+  "exports": {
+    ".": {
+      "import": "./dist/lib/david.es.js",
+      "require": "./dist/lib/david.umd.js"
+    },
+    "./dist/lib/style.css": "./dist/lib/style.css"
   }
 }
